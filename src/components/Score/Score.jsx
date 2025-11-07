@@ -9,7 +9,6 @@ const Score = () => {
     }
 
     const userScore = getUserScores();
-    console.log(userScore);
 
     return (
         <div className="score container">
@@ -37,17 +36,17 @@ const Score = () => {
                         ))}
                     </tbody>
                 </table>
-                <Link to="/">
-                    <div className="return">
-                        <i className="fas fa-home"></i>
-                    </div>
-                </Link>
+
             </div>
 
-        
+            <Link to="/">
+                <div className="return">
+                    <i className="fas fa-home"></i>
+                </div>
+            </Link>
 
         </div >
-     );
+    );
 }
 
 export default Score;

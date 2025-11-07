@@ -130,7 +130,11 @@ export default function GameContent({ attempts, setAttempts, setResolution, form
                     <p>Tu as terminé le jeu avec succès 🎯</p>
                     <p>Nombre de tentatives : {attempts}</p>
                     <p>Temps de jeu : {formatTime(gameDuration)}</p>
-                    <Link to="/results">voir les résultats</Link>
+                    <Link to="/results">
+                    <div className="return">
+                         Scores <i className="fas fa-eye"></i>
+                    </div>
+                    </Link>
                 </div>
             )}
         </div>

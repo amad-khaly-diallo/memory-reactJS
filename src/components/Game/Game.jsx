@@ -7,6 +7,9 @@ const Game = ({ formData }) => {
   const [attempts, setAttempts] = useState(0);
   const [gameDuration, setGameDuration] = useState(0);
 
+  if(formData.paire < 3) formData.paire = 3;
+  if(formData.paire > 14) formData.paire = 14;
+
 
   const [resolution, setResolution] = useState(0);
 
