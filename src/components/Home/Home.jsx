@@ -27,7 +27,7 @@ export const Home = ({ formData, setFormData }) => {
                     name="name"
                 />
 
-                <label htmlFor="paires">Nombre de paires (3 à 12): </label>
+                <label htmlFor="paires">Nombre de paires (3 à 14): </label>
                 <input
                     value={formData.paire}
                     onChange={handleChange}
@@ -35,7 +35,7 @@ export const Home = ({ formData, setFormData }) => {
                     id="paires"
                     name="paire"
                     min={3}
-                    max={12}
+                    max={14}
                 />
 
                 <button type="submit">

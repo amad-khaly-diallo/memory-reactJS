@@ -2,16 +2,6 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
 
 .App-header {
   display: flex;
@@ -24,7 +14,6 @@
 
 .home {
   margin: 50px auto;
-  height: calc(100vh - 300px);
 }
 
 .home h2 {
@@ -76,17 +65,14 @@ form button {
   transition: background-color 0.3s ease;
 }
 
-.footer {
-  background-color: #222;
-  padding: 20px 0;
-  text-align: center;
-  margin-top: 50px;
-  position: relative;
-  bottom: 0;
-  width: 100%;
-}
 
 .copy-right {
   color: #888;
   font-size: 0.9rem;
+}
+
+.footer {
+  margin-top: 50px;
+  padding: 20px 0;
+  border-top: 1px solid #eee;
 }

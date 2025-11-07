@@ -4,15 +4,11 @@ import './Game.css';
 import Cards from './Cards';
 
 const Game = ({ formData }) => {
+  const [attempts, setAttempts] = useState(0);
   const [gameDuration, setGameDuration] = useState(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setGameDuration(prev => prev + 1);
-    }, 1000);
 
-    return () => clearInterval(interval);
-  }, []);
+  const [resolution, setResolution] = useState(0);
 
   const formatTime = (seconds) => {
     const mins = Math.floor(seconds / 60);
@@ -20,7 +16,6 @@ const Game = ({ formData }) => {
     return `${mins.toString().padStart(2, '0')}:${secs.toString().padStart(2, '0')}`;
   };
 
-  const [attempts, setAttempts] = useState(0);
 
   return (
     <div className="game-container">
@@ -29,13 +24,13 @@ const Game = ({ formData }) => {
         <p>Player Name: {formData.name}</p>
         <p>Number of Pairs: {formData.paire}</p>
         <p>Time: {formatTime(gameDuration)}</p>
-        <p>Attempts: {}</p>
-        <p>Resolution: 0%</p>
+        <p>Attempts: {attempts}</p>
+        <p>Resolution: {resolution}% </p>
       </div>
-      <Cards attempts={attempts} setAttempts={setAttempts} />
-      <div className="return">
-        <Link to="/">Return</Link>
-      </div>
+      <Cards formData={formData} resolution={resolution} setResolution={setResolution} gameDuration={gameDuration} setGameDuration={setGameDuration} attempts={attempts} setAttempts={setAttempts} />
+      <Link to="/" className="return">
+        <i className="fas fa-home"></i>
+      </Link>
     </div>
   );
 }
