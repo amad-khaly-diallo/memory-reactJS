@@ -68,12 +68,11 @@ export default function GameContent({ attempts, setAttempts, setResolution, form
         const resolutionPercent = Math.round((matched / formData.paire) * 100);
         setResolution(resolutionPercent);
 
-        if (matched === formData.paire) {
+        if (matched >= formData.paire) {
             setGameFinished(true);
         }
     }, [shuffledEmojis, formData.paire, setResolution]);
 
-    //Save user data in localStorage
     const saveUserData = () => {
         const userData = {
             name: formData.name,
@@ -86,20 +85,16 @@ export default function GameContent({ attempts, setAttempts, setResolution, form
         const existingData = JSON.parse(localStorage.getItem("memoryGameData")) || [];
         existingData.push(userData);
         localStorage.setItem("memoryGameData", JSON.stringify(existingData));
-    }
+    };
 
-    // Timer effect
     useEffect(() => {
-        const interval = setInterval(() => {
-            setGameDuration((prev) => prev + 1);
-        }, 1000);
-
-        if (gameFinished) {
-            saveUserData();
-            clearInterval(interval);
-        }
-
+        const interval = setInterval(() => setGameDuration(prev => prev + 1), 1000);
+        if (gameFinished) clearInterval(interval);
         return () => clearInterval(interval);
+    }, [gameFinished]);
+
+    useEffect(() => {
+        if (gameFinished) saveUserData();
     }, [gameFinished]);
 
     const formatTime = (seconds) => {
